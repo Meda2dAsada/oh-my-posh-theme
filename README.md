@@ -9,4 +9,4 @@
 ![lambdareworpy](images/lambdareworkpython.png)
 
 ## download [oh-my-posh](https://ohmyposh.dev/)
-## download [fonts][https://www.nerdfonts.com/]
+## download [fonts](https://www.nerdfonts.com/)
