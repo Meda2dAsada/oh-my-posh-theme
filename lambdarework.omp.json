@@ -1,0 +1,142 @@
+{
+  "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
+  "console_title_template": "{{ .UserName }} in {{ .Folder }}",
+  "blocks": [
+    {
+      "alignment": "left",
+      "segments": [
+        {
+          "background": "#282828",
+          "foreground": "#F52F83",
+          "leading_diamond": "\u256d\u2500\ue0b2",
+          "style": "diamond",
+          "template": "\u2772{{ if .WSL }}WSL at {{ end }}{{.Icon}}\u2773 \u250B",
+          "type": "os"
+        },
+        {
+          "background": "#282828",
+          "foreground": "#F52F83",
+          "properties": {
+            "always_enabled": true,
+            "style": "austin",
+            "threshold": 500
+          },
+          "style": "powerline",
+          "template": " {{ .FormattedMs }} \ue0b1",
+          "type": "executiontime"
+        },
+        {
+          "background": "#282828",
+          "foreground": "#26C6DA",
+          "style": "plain",
+          "template": "\uf0e7",
+          "type": "root"
+        },
+        {
+          "background": "#282828",
+          "foreground": "#F52F83",
+          "properties": {
+            "style": "full",
+            "trailing_diamond": "\ue0c6"
+          },
+          "style": "diamond",
+          "template": " <#00FFAA>{{ .Folder }}</> \ue0b1",
+          "type": "path"
+        },
+        {
+          "background": "#282828",
+          "foreground": "#EEFF22",
+          "style": "plain",
+          "type": "git"
+        },
+        {
+          "background": "#282828",
+          "foreground": "#26C6DA",
+          "foreground_templates": [
+            "{{ if eq \"Full\" .State.String }}#00FFFF{{ end }}",
+            "{{ if eq \"Charging\" .State.String }}#00FF00{{ end }}",
+            "{{ if eq \"Discharging\" .State.String }}#ffff00{{ end }}"
+          ],
+          "properties": {
+            "charged_icon": "\uf240 ",
+            "charging_icon": "\ueb2d ",
+            "discharging_icon": "\ueb2d ",
+            "text": "\ue0b0"
+          },
+          "style": "powerline",
+          "template": " {{ if not .Error }}{{ .Icon }}{{ .Percentage }}{{ end }}{{ .Error }} \ue0b1",
+          "type": "battery"
+        },
+        {
+          "background": "#282828",
+          "background_templates": [
+            "{{ if gt .Code 0 }}#282828{{ end }}"
+          ],
+          "foreground": "#F52F83",
+          "properties": {
+            "always_enabled": true,
+            "display_exit_code": true
+          },
+          "style": "diamond",
+          "template": " {{ if gt .Code 0 }}\uf00d {{ reason .Code }}{{ else }}\uf00c{{ end }} ",
+          "trailing_diamond": "\ue0b0",
+          "type": "status"
+        }
+      ],
+      "type": "prompt"
+    },
+    {
+      "alignment": "right",
+      "segments": [
+        {
+          "type": "session",
+          "style": "diamond",
+          "leading_diamond": "\ue0b2",
+          "background": "#282828",
+          "foreground": "#F52F83",
+          "template": " {{ .UserName }}@{{ .HostName }} \ue0b3 "
+        },  
+        {
+          "type": "python",
+          "style": "diamond",
+          "background": "#282828",
+          "foreground": "#F52F83",
+          "template": "{{ if .Venv }}<#00FF00>\ue235 {{ .Full }} </>\ue0b3{{end}} "
+        },  
+        {
+          "background": "#282828",
+          "foreground": "#F52F83",
+          "properties": {
+            "time_format": "15:04:05 \u250B_2"
+          },
+          "style": "diamond",
+          "template": "{{ .CurrentDate | date .Format }} \uf073 ",
+          "trailing_diamond": "\ue0b0",
+          "type": "time"
+        }
+      ],
+      "type": "prompt"
+    },
+    {
+      "alignment": "left",
+      "newline": true,
+      "segments": [
+        {
+          "properties": {
+            "always_enabled": true
+          },
+          "background": "#F52F83", 
+          "foreground": "#00FFAA", 
+          "style": "diamond",
+          "leading_diamond": "\u2570\u2500\ue0b2",
+          "template": "\u2768\u03BB\u2769",
+          "trailing_diamond": "\ue0b0",
+          "type": "path"
+        }
+      ],
+      "type": "prompt"
+    }
+  ],
+  "final_space": true,
+  "version": 2
+}
